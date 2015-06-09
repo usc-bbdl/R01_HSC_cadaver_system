@@ -1,0 +1,70 @@
+<!-- This is the DTD for eric3's project session file version 3.5 -->
+
+<!ELEMENT   Filename        (#PCDATA)>
+<!ATTLIST   Filename
+    cline       CDATA   #REQUIRED
+    cindex      CDATA   #REQUIRED>
+
+<!ELEMENT   Filenames       (Filename*)>
+
+<!ELEMENT   ActiveWindow    (#PCDATA)>
+<!ATTLIST   ActiveWindow
+    cline       CDATA   #REQUIRED
+    cindex      CDATA   #REQUIRED>
+
+<!ELEMENT   BpFilename      (#PCDATA)>
+<!ELEMENT   Linenumber      EMPTY>
+<!ATTLIST   Linenumber
+    value       CDATA   #REQUIRED>
+<!ELEMENT   Condition       (#PCDATA)>
+<!ELEMENT   Temporary       EMPTY>
+<!ATTLIST   Temporary
+    value       CDATA   #REQUIRED>
+<!ELEMENT   Enabled         EMPTY>
+<!ATTLIST   Enabled
+    value       CDATA   #REQUIRED>
+<!ELEMENT   Count           EMPTY>
+<!ATTLIST   Count
+    value       CDATA   #REQUIRED>
+
+<!ELEMENT   Breakpoint      (BpFilename,
+                             Linenumber,
+                             Condition,
+                             Temporary,
+                             Enabled,
+                             Count)>
+
+<!ELEMENT   Breakpoints     (Breakpoint*)>
+
+<!ELEMENT   Exception       (#PCDATA)>
+
+<!ELEMENT   CommandLine      (#PCDATA)>
+<!ELEMENT   WorkingDirectory (#PCDATA)>
+<!ELEMENT   ReportExceptions EMPTY>
+<!ATTLIST   ReportExceptions
+    value       CDATA   #REQUIRED>
+<!ELEMENT   Exceptions       (Exception*)>
+<!ELEMENT   TracePython      EMPTY>
+<!ATTLIST   TracePython
+    value       CDATA   #REQUIRED>
+
+<!ELEMENT   DebugInfo       (CommandLine,
+                             WorkingDirectory,
+                             ReportExceptions,
+                             Exceptions,
+                             TracePython)>
+
+<!ELEMENT   BmFilename      (#PCDATA)>
+
+<!ELEMENT   Bookmark        (BmFilename,
+                             Linenumber)>
+
+<!ELEMENT   Bookmarks       (Bookmark*)>
+
+<!ELEMENT   Session         (Filenames,
+                             ActiveWindow?,
+                             Breakpoints,
+                             DebugInfo,
+                             Bookmarks)>
+<!ATTLIST   Session
+    version     CDATA   #REQUIRED>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html><head>
+<title>eric4.KdeQt.KQProgressDialog</title>
+<style>
+body {
+    background:white;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #4FA4FF; }
+h2 { color: white; background: #4FA4FF; }
+h3 { color: white; background: #00557F; }
+h4 { color: white; background: #00557F; }
+    
+a { color: #AA5500; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric4.KdeQt.KQProgressDialog</h1>
+<p>
+Compatibility module to use the KDE Progress Dialog instead of the Qt Progress Dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#__kdeKQProgressDialog">__kdeKQProgressDialog</a></td>
+<td>Compatibility class to use the KDE Progress Dialog instead of the Qt Progress Dialog.</td>
+</tr><tr>
+<td><a href="#__qtKQProgressDialog">__qtKQProgressDialog</a></td>
+<td>Compatibility class to use the Qt Progress Dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#KQProgressDialog">KQProgressDialog</a></td>
+<td>Public function to instantiate a progress dialog object.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__kdeKQProgressDialog" ID="__kdeKQProgressDialog"></a>
+<h2>__kdeKQProgressDialog</h2>
+<p>
+            Compatibility class to use the KDE Progress Dialog instead of 
+            the Qt Progress Dialog.
+</p>
+<h3>Derived from</h3>
+KProgressDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#__kdeKQProgressDialog.__init__">__kdeKQProgressDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#__kdeKQProgressDialog.reset">reset</a></td>
+<td>Public slot to reset the progress bar.</td>
+</tr><tr>
+<td><a href="#__kdeKQProgressDialog.setLabel">setLabel</a></td>
+<td>Public method to set the dialog's label.</td>
+</tr><tr>
+<td><a href="#__kdeKQProgressDialog.setMaximum">setMaximum</a></td>
+<td>Public slot to set the maximum value of the progress bar.</td>
+</tr><tr>
+<td><a href="#__kdeKQProgressDialog.setMinimum">setMinimum</a></td>
+<td>Public slot to set the minimum value of the progress bar.</td>
+</tr><tr>
+<td><a href="#__kdeKQProgressDialog.setValue">setValue</a></td>
+<td>Public slot to set the current value of the progress bar.</td>
+</tr><tr>
+<td><a href="#__kdeKQProgressDialog.wasCanceled">wasCanceled</a></td>
+<td>Public slot to check, if the dialog was canceled.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="__kdeKQProgressDialog.__init__" ID="__kdeKQProgressDialog.__init__"></a>
+<h4>__kdeKQProgressDialog (Constructor)</h4>
+<b>__kdeKQProgressDialog</b>(<i>labelText, cancelButtonText, minimum, maximum, parent = None, f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+                Constructor
+</p><dl>
+<dt><i>labelText</i></dt>
+<dd>
+text to show in the progress dialog (QString)
+</dd><dt><i>cancelButtonText</i></dt>
+<dd>
+text to show for the cancel button or
+                    None to disallow cancellation and to hide the cancel button (QString)
+</dd><dt><i>minimum</i></dt>
+<dd>
+minimum value for the progress indicator (integer)
+</dd><dt><i>maximum</i></dt>
+<dd>
+maximum value for the progress indicator (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent of the progress dialog (QWidget)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags (ignored) (Qt.WindowFlags)
+</dd>
+</dl><a NAME="__kdeKQProgressDialog.reset" ID="__kdeKQProgressDialog.reset"></a>
+<h4>__kdeKQProgressDialog.reset</h4>
+<b>reset</b>(<i></i>)
+<p>
+                Public slot to reset the progress bar.
+</p><a NAME="__kdeKQProgressDialog.setLabel" ID="__kdeKQProgressDialog.setLabel"></a>
+<h4>__kdeKQProgressDialog.setLabel</h4>
+<b>setLabel</b>(<i>label</i>)
+<p>
+                Public method to set the dialog's label.
+</p><p>
+                Note: This is doing nothing.
+</p><dl>
+<dt><i>label</i></dt>
+<dd>
+label to be set (QLabel)
+</dd>
+</dl><a NAME="__kdeKQProgressDialog.setMaximum" ID="__kdeKQProgressDialog.setMaximum"></a>
+<h4>__kdeKQProgressDialog.setMaximum</h4>
+<b>setMaximum</b>(<i>maximum</i>)
+<p>
+                Public slot to set the maximum value of the progress bar.
+</p><dl>
+<dt><i>maximum</i></dt>
+<dd>
+maximum value for the progress indicator (integer)
+</dd>
+</dl><a NAME="__kdeKQProgressDialog.setMinimum" ID="__kdeKQProgressDialog.setMinimum"></a>
+<h4>__kdeKQProgressDialog.setMinimum</h4>
+<b>setMinimum</b>(<i>minimum</i>)
+<p>
+                Public slot to set the minimum value of the progress bar.
+</p><dl>
+<dt><i>minimum</i></dt>
+<dd>
+minimum value for the progress indicator (integer)
+</dd>
+</dl><a NAME="__kdeKQProgressDialog.setValue" ID="__kdeKQProgressDialog.setValue"></a>
+<h4>__kdeKQProgressDialog.setValue</h4>
+<b>setValue</b>(<i>value</i>)
+<p>
+                Public slot to set the current value of the progress bar.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+progress value to set
+</dd>
+</dl><a NAME="__kdeKQProgressDialog.wasCanceled" ID="__kdeKQProgressDialog.wasCanceled"></a>
+<h4>__kdeKQProgressDialog.wasCanceled</h4>
+<b>wasCanceled</b>(<i></i>)
+<p>
+                Public slot to check, if the dialog was canceled.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the dialog was canceled (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtKQProgressDialog" ID="__qtKQProgressDialog"></a>
+<h2>__qtKQProgressDialog</h2>
+<p>
+    Compatibility class to use the Qt Progress Dialog.
+</p>
+<h3>Derived from</h3>
+QProgressDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="KQProgressDialog" ID="KQProgressDialog"></a>
+<h2>KQProgressDialog</h2>
+<b>KQProgressDialog</b>(<i>labelText, cancelButtonText, minimum, maximum, parent = None, f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+    Public function to instantiate a progress dialog object.
+</p><dl>
+<dt><i>labelText</i></dt>
+<dd>
+text to show in the progress dialog (QString)
+</dd><dt><i>cancelButtonText</i></dt>
+<dd>
+text to show for the cancel button or
+        None to disallow cancellation and to hide the cancel button (QString)
+</dd><dt><i>minimum</i></dt>
+<dd>
+minimum value for the progress indicator (integer)
+</dd><dt><i>maximum</i></dt>
+<dd>
+maximum value for the progress indicator (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags for the dialog (Qt.WindowFlags)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the progress dialog object
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

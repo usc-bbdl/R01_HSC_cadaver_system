@@ -1,0 +1,16 @@
+--- qsciscintilla.cpp.orig	2008-11-17 14:52:33.000000000 +0100
++++ qsciscintilla.cpp	2008-11-18 12:25:17.000000000 +0100
+@@ -2680,7 +2680,12 @@
+ 
+     if (lex)
+     {
+-        SendScintilla(SCI_SETLEXERLANGUAGE, lex->lexer());
++        if (qstrcmp(lex->lexer(), "container") == 0)
++        {
++            SendScintilla(SCI_SETLEXER, SCLEX_CONTAINER);
++        } else {
++            SendScintilla(SCI_SETLEXERLANGUAGE, lex->lexer());
++        }
+ 
+         int bits = SendScintilla(SCI_GETSTYLEBITSNEEDED);
+ 

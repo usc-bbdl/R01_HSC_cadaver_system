@@ -1,0 +1,136 @@
+"Rocamora Vimrc file
+"
+" Maintainer:	John Rocamora <johnrocamora@gmail.com>
+" Last change:	2014 Jan 19
+"
+" To use it, copy it to
+"     for Unix and OS/2:  ~/.vimrc
+"     for MS-DOS and Win32:  $VIM\_vimrc
+
+"set backupdir=~/.vim/backup/ "sets to null directory
+"set backupdir=$VIMRUNTIME/../backup/
+"set directory=$VIMRUNTIME/../backup/
+
+"call pathogen#infect()
+set ff=unix
+set ffs=unix,dos
+
+map <F3> ggVGg?
+
+set nocompatible
+filetype plugin on
+syntax on
+
+"set softtabstop=4
+
+" Expand tabs only for python
+"autocmd FileType * set tabstop=4|set shiftwidth=4|set noexpandtab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf8,prcs
+"On Windows
+"set guifont=Fixedsys:h10
+"set guifont=Monaco:h14
+set guifont=Andale\ Mono:h14
+"set guifontwide=NSimsun:h10
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+"set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+"set relativenumber
+"set undofile
+
+set wrap
+"set textwidth=79
+set formatoptions=qrn1
+"set colorcolumn=85
+
+"Help 'formatoptions'
+set fo-=or
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Line numbers
+:set nu
+":set nu!
+
+" Denoobifier
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+"No help
+"inoremap <F1> <ESC>
+"nnoremap <F1> <ESC>
+"vnoremap <F1> <ESC>
+
+" Remap to make faster closing of vim
+nnoremap ; :
+
+" Change leader
+let mapleader = ","
+
+" Remap Escape
+"inoremap jj <ESC>
+
+" Run python on current file
+" nmap <leader>r :w<CR>:!python - 
+":set makeprg=python\ %
+
+" Window splitting
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Commenting blocks of code.
+"autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+"autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+"autocmd FileType conf,fstab       let b:comment_leader = '# '
+"autocmd FileType tex              let b:comment_leader = '% '
+"autocmd FileType mail             let b:comment_leader = '> '
+"autocmd FileType vim              let b:comment_leader = '" '
+"noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+"noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+"cd C:\Users\johnrocamora\Dropbox\0_Vim
+
+" Python support
+"autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
+"autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+"autocmd BufRead *.py nmap <F5> :!python "%"<CR>
+
+" Ctrl-l redraws the screen and removes any search highlighting
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+" Matlab
+"map <leader>r :w<CR>:!"C:\Program Files\MATLAB\R2013a\bin\matlab" -nodesktop -nosplash -r "try, run %:p, pause, catch, end, quit" <CR> <CR>
+"map <leader>r :w<CR>:!"C:\Program Files\MATLAB\R2013a\bin\matlab" -automation -r "try, run %:p, pause, catch, end, quit" <CR> <CR>
+"map <leader>r :w<CR>:!"C:\Program Files\MATLAB\R2013a\bin\matlab" -automation -r "run %:p, pause, quit" <CR>
+
+"map <leader>p :w<CR>:!runCpp <CR>
+
+"map <leader>j <CR>:!runJava<CR>
+
+"set autochdir
+colorscheme wombat 
+set vsvim_useeditordefaults
+set novsvim_useeditorindent

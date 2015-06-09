@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html><head>
+<title>eric4.KdeQt.KQApplication</title>
+<style>
+body {
+    background:white;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #4FA4FF; }
+h2 { color: white; background: #4FA4FF; }
+h3 { color: white; background: #00557F; }
+h4 { color: white; background: #00557F; }
+    
+a { color: #AA5500; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric4.KdeQt.KQApplication</h1>
+<p>
+Compatibility module to use KApplication instead of QApplication.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>e4App</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#KQApplicationMixin">KQApplicationMixin</a></td>
+<td>Private mixin class implementing methods common to both KQApplication bases.</td>
+</tr><tr>
+<td><a href="#__kdeKQApplication">__kdeKQApplication</a></td>
+<td>Compatibility class to use KApplication instead of Qt's QApplication.</td>
+</tr><tr>
+<td><a href="#__qtKQApplication">__qtKQApplication</a></td>
+<td>Compatibility class to use QApplication.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#KQApplication">KQApplication</a></td>
+<td>Public function to instantiate an application object.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="KQApplicationMixin" ID="KQApplicationMixin"></a>
+<h2>KQApplicationMixin</h2>
+<p>
+    Private mixin class implementing methods common to both KQApplication bases.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#KQApplicationMixin.__init__">KQApplicationMixin</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#KQApplicationMixin._localeString">_localeString</a></td>
+<td>Protected function to get the string for the configured locale.</td>
+</tr><tr>
+<td><a href="#KQApplicationMixin.getObject">getObject</a></td>
+<td>Public method to get a reference to a registered object.</td>
+</tr><tr>
+<td><a href="#KQApplicationMixin.getPluginObject">getPluginObject</a></td>
+<td>Public method to get a reference to a registered plugin object.</td>
+</tr><tr>
+<td><a href="#KQApplicationMixin.getPluginObjectType">getPluginObjectType</a></td>
+<td>Public method to get the type of a registered plugin object.</td>
+</tr><tr>
+<td><a href="#KQApplicationMixin.getPluginObjects">getPluginObjects</a></td>
+<td>Public method to get a list of (name, reference) pairs of all registered plugin objects.</td>
+</tr><tr>
+<td><a href="#KQApplicationMixin.registerObject">registerObject</a></td>
+<td>Public method to register an object in the object registry.</td>
+</tr><tr>
+<td><a href="#KQApplicationMixin.registerPluginObject">registerPluginObject</a></td>
+<td>Public method to register a plugin object in the object registry.</td>
+</tr><tr>
+<td><a href="#KQApplicationMixin.unregisterPluginObject">unregisterPluginObject</a></td>
+<td>Public method to unregister a plugin object in the object registry.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="KQApplicationMixin.__init__" ID="KQApplicationMixin.__init__"></a>
+<h4>KQApplicationMixin (Constructor)</h4>
+<b>KQApplicationMixin</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="KQApplicationMixin._localeString" ID="KQApplicationMixin._localeString"></a>
+<h4>KQApplicationMixin._localeString</h4>
+<b>_localeString</b>(<i></i>)
+<p>
+            Protected function to get the string for the configured locale.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+locale name (string)
+</dd>
+</dl><a NAME="KQApplicationMixin.getObject" ID="KQApplicationMixin.getObject"></a>
+<h4>KQApplicationMixin.getObject</h4>
+<b>getObject</b>(<i>name</i>)
+<p>
+        Public method to get a reference to a registered object.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the object (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the registered object
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is not known
+</dd>
+</dl><a NAME="KQApplicationMixin.getPluginObject" ID="KQApplicationMixin.getPluginObject"></a>
+<h4>KQApplicationMixin.getPluginObject</h4>
+<b>getPluginObject</b>(<i>name</i>)
+<p>
+        Public method to get a reference to a registered plugin object.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plugin object (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the registered plugin object
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is not known
+</dd>
+</dl><a NAME="KQApplicationMixin.getPluginObjectType" ID="KQApplicationMixin.getPluginObjectType"></a>
+<h4>KQApplicationMixin.getPluginObjectType</h4>
+<b>getPluginObjectType</b>(<i>name</i>)
+<p>
+        Public method to get the type of a registered plugin object.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plugin object (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+type of the plugin object (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is not known
+</dd>
+</dl><a NAME="KQApplicationMixin.getPluginObjects" ID="KQApplicationMixin.getPluginObjects"></a>
+<h4>KQApplicationMixin.getPluginObjects</h4>
+<b>getPluginObjects</b>(<i></i>)
+<p>
+        Public method to get a list of (name, reference) pairs of all
+        registered plugin objects.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of (name, reference) pairs
+</dd>
+</dl><a NAME="KQApplicationMixin.registerObject" ID="KQApplicationMixin.registerObject"></a>
+<h4>KQApplicationMixin.registerObject</h4>
+<b>registerObject</b>(<i>name, object</i>)
+<p>
+        Public method to register an object in the object registry.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the object (string)
+</dd><dt><i>object</i></dt>
+<dd>
+reference to the object
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is already in use
+</dd>
+</dl><a NAME="KQApplicationMixin.registerPluginObject" ID="KQApplicationMixin.registerPluginObject"></a>
+<h4>KQApplicationMixin.registerPluginObject</h4>
+<b>registerPluginObject</b>(<i>name, object, pluginType = None</i>)
+<p>
+        Public method to register a plugin object in the object registry.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plugin object (string)
+</dd><dt><i>object</i></dt>
+<dd>
+reference to the plugin object
+</dd><dt><i>pluginType=</i></dt>
+<dd>
+type of the plugin object (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is already in use
+</dd>
+</dl><a NAME="KQApplicationMixin.unregisterPluginObject" ID="KQApplicationMixin.unregisterPluginObject"></a>
+<h4>KQApplicationMixin.unregisterPluginObject</h4>
+<b>unregisterPluginObject</b>(<i>name</i>)
+<p>
+        Public method to unregister a plugin object in the object registry.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plugin object (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeKQApplication" ID="__kdeKQApplication"></a>
+<h2>__kdeKQApplication</h2>
+<p>
+            Compatibility class to use KApplication instead of Qt's QApplication.
+</p>
+<h3>Derived from</h3>
+KApplication, KQApplicationMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#__kdeKQApplication.__init__">__kdeKQApplication</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="__kdeKQApplication.__init__" ID="__kdeKQApplication.__init__"></a>
+<h4>__kdeKQApplication (Constructor)</h4>
+<b>__kdeKQApplication</b>(<i>argv, opts</i>)
+<p>
+                Constructor
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+command line arguments
+</dd><dt><i>opts</i></dt>
+<dd>
+acceptable command line options
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtKQApplication" ID="__qtKQApplication"></a>
+<h2>__qtKQApplication</h2>
+<p>
+    Compatibility class to use QApplication.
+</p>
+<h3>Derived from</h3>
+QApplication, KQApplicationMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#__qtKQApplication.__init__">__qtKQApplication</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="__qtKQApplication.__init__" ID="__qtKQApplication.__init__"></a>
+<h4>__qtKQApplication (Constructor)</h4>
+<b>__qtKQApplication</b>(<i>argv, opts</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+command line arguments
+</dd><dt><i>opts</i></dt>
+<dd>
+acceptable command line options (ignored)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="KQApplication" ID="KQApplication"></a>
+<h2>KQApplication</h2>
+<b>KQApplication</b>(<i>argv, opts</i>)
+<p>
+    Public function to instantiate an application object.
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+command line arguments
+</dd><dt><i>opts</i></dt>
+<dd>
+acceptable command line options
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the application object
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

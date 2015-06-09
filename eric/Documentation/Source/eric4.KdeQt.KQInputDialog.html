@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html><head>
+<title>eric4.KdeQt.KQInputDialog</title>
+<style>
+body {
+    background:white;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #4FA4FF; }
+h2 { color: white; background: #4FA4FF; }
+h3 { color: white; background: #00557F; }
+h4 { color: white; background: #00557F; }
+    
+a { color: #AA5500; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric4.KdeQt.KQInputDialog</h1>
+<p>
+Compatibility module to use the KDE Input Dialog instead of the Qt Input Dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>__qtGetDouble</td></tr><tr><td>__qtGetInt</td></tr><tr><td>__qtGetItem</td></tr><tr><td>__qtGetText</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__kdeGetDouble">__kdeGetDouble</a></td>
+<td>Function to get a double value from the user.</td>
+</tr><tr>
+<td><a href="#__kdeGetInt">__kdeGetInt</a></td>
+<td>Function to get an integer value from the user.</td>
+</tr><tr>
+<td><a href="#__kdeGetItem">__kdeGetItem</a></td>
+<td>Function to get an item of a list from the user.</td>
+</tr><tr>
+<td><a href="#__kdeGetText">__kdeGetText</a></td>
+<td>Function to get some text from the user.</td>
+</tr><tr>
+<td><a href="#getDouble">getDouble</a></td>
+<td>Function to get a double value from the user.</td>
+</tr><tr>
+<td><a href="#getInt">getInt</a></td>
+<td>Function to get an integer value from the user.</td>
+</tr><tr>
+<td><a href="#getItem">getItem</a></td>
+<td>Function to get an item of a list from the user.</td>
+</tr><tr>
+<td><a href="#getText">getText</a></td>
+<td>Function to get some text from the user.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__kdeGetDouble" ID="__kdeGetDouble"></a>
+<h2>__kdeGetDouble</h2>
+<b>__kdeGetDouble</b>(<i>parent, title, label, value = 0.0, minValue = -2147483647.0, maxValue = 2147483647.0, decimals = 1, f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+            Function to get a double value from the user.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>label</i></dt>
+<dd>
+text of the label for the line edit (QString)
+</dd><dt><i>value</i></dt>
+<dd>
+initial value of the spin box (double)
+</dd><dt><i>minValue</i></dt>
+<dd>
+minimal value of the spin box (double)
+</dd><dt><i>maxValue</i></dt>
+<dd>
+maximal value of the spin box (double)
+</dd><dt><i>decimals</i></dt>
+<dd>
+maximum number of decimals the value may have (integer)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags for the dialog (Qt.WindowFlags)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of (value, ok). value contains the double entered by the
+                user, ok indicates a valid input. (double, boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeGetInt" ID="__kdeGetInt"></a>
+<h2>__kdeGetInt</h2>
+<b>__kdeGetInt</b>(<i>parent, title, label, value = 0, minValue = -2147483647, maxValue = 2147483647, step = 1, f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+            Function to get an integer value from the user.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>label</i></dt>
+<dd>
+text of the label for the line edit (QString)
+</dd><dt><i>value</i></dt>
+<dd>
+initial value of the spin box (integer)
+</dd><dt><i>minValue</i></dt>
+<dd>
+minimal value of the spin box (integer)
+</dd><dt><i>maxValue</i></dt>
+<dd>
+maximal value of the spin box (integer)
+</dd><dt><i>step</i></dt>
+<dd>
+step size of the spin box (integer)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags for the dialog (Qt.WindowFlags)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of (value, ok). value contains the integer entered by the
+                user, ok indicates a valid input. (integer, boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeGetItem" ID="__kdeGetItem"></a>
+<h2>__kdeGetItem</h2>
+<b>__kdeGetItem</b>(<i>parent, title, label, slist, current = 0, editable = True, f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+            Function to get an item of a list from the user.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>label</i></dt>
+<dd>
+text of the label for the line edit (QString)
+</dd><dt><i>slist</i></dt>
+<dd>
+list of strings to select from (QStringList)
+</dd><dt><i>current</i></dt>
+<dd>
+number of item, that should be selected as a default (integer)
+</dd><dt><i>editable</i></dt>
+<dd>
+indicates whether the user can input their own text (boolean)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags for the dialog (Qt.WindowFlags)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of (value, ok). value contains the double entered by the
+                user, ok indicates a valid input. (QString, boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeGetText" ID="__kdeGetText"></a>
+<h2>__kdeGetText</h2>
+<b>__kdeGetText</b>(<i>parent, title, label, mode = QLineEdit.Normal, text = QString(), f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+            Function to get some text from the user.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>label</i></dt>
+<dd>
+text of the label for the line edit (QString)
+</dd><dt><i>mode</i></dt>
+<dd>
+mode of the line edit (QLineEdit.EchoMode)
+</dd><dt><i>text</i></dt>
+<dd>
+initial text of the line edit (QString)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags for the dialog (Qt.WindowFlags)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of (text, ok). text contains the text entered by the
+                user, ok indicates a valid input. (QString, boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getDouble" ID="getDouble"></a>
+<h2>getDouble</h2>
+<b>getDouble</b>(<i>parent, title, label, value = 0.0, minValue = -2147483647.0, maxValue = 2147483647.0, decimals = 1, f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+    Function to get a double value from the user.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>label</i></dt>
+<dd>
+text of the label for the line edit (QString)
+</dd><dt><i>value</i></dt>
+<dd>
+initial value of the spin box (double)
+</dd><dt><i>minValue</i></dt>
+<dd>
+minimal value of the spin box (double)
+</dd><dt><i>maxValue</i></dt>
+<dd>
+maximal value of the spin box (double)
+</dd><dt><i>decimals</i></dt>
+<dd>
+maximum number of decimals the value may have (integer)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags for the dialog (Qt.WindowFlags)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of (value, ok). value contains the double entered by the
+        user, ok indicates a valid input. (double, boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getInt" ID="getInt"></a>
+<h2>getInt</h2>
+<b>getInt</b>(<i>parent, title, label, value = 0, minValue = -2147483647, maxValue = 2147483647, step = 1, f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+    Function to get an integer value from the user.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>label</i></dt>
+<dd>
+text of the label for the line edit (QString)
+</dd><dt><i>value</i></dt>
+<dd>
+initial value of the spin box (integer)
+</dd><dt><i>minValue</i></dt>
+<dd>
+minimal value of the spin box (integer)
+</dd><dt><i>maxValue</i></dt>
+<dd>
+maximal value of the spin box (integer)
+</dd><dt><i>step</i></dt>
+<dd>
+step size of the spin box (integer)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags for the dialog (Qt.WindowFlags)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of (value, ok). value contains the integer entered by the
+        user, ok indicates a valid input. (integer, boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getItem" ID="getItem"></a>
+<h2>getItem</h2>
+<b>getItem</b>(<i>parent, title, label, slist, current = 0, editable = True, f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+    Function to get an item of a list from the user.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>label</i></dt>
+<dd>
+text of the label for the line edit (QString)
+</dd><dt><i>slist</i></dt>
+<dd>
+list of strings to select from (QStringList)
+</dd><dt><i>current</i></dt>
+<dd>
+number of item, that should be selected as a default (integer)
+</dd><dt><i>editable</i></dt>
+<dd>
+indicates whether the user can input their own text (boolean)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags for the dialog (Qt.WindowFlags)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of (value, ok). value contains the double entered by the
+        user, ok indicates a valid input. (QString, boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getText" ID="getText"></a>
+<h2>getText</h2>
+<b>getText</b>(<i>parent, title, label, mode = QLineEdit.Normal, text = QString(), f = Qt.WindowFlags(Qt.Widget)</i>)
+<p>
+    Function to get some text from the user.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>label</i></dt>
+<dd>
+text of the label for the line edit (QString)
+</dd><dt><i>mode</i></dt>
+<dd>
+mode of the line edit (QLineEdit.EchoMode)
+</dd><dt><i>text</i></dt>
+<dd>
+initial text of the line edit (QString)
+</dd><dt><i>f</i></dt>
+<dd>
+window flags for the dialog (Qt.WindowFlags)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of (text, ok). text contains the text entered by the
+        user, ok indicates a valid input. (QString, boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html><head>
+<title>eric4.KdeQt.__init__</title>
+<style>
+body {
+    background:white;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #4FA4FF; }
+h2 { color: white; background: #4FA4FF; }
+h3 { color: white; background: #00557F; }
+h4 { color: white; background: #00557F; }
+    
+a { color: #AA5500; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric4.KdeQt.__init__</h1>
+<p>
+Package implementing compatibility modules for using KDE dialogs instead og Qt dialogs.
+</p><p>
+The different modules try to import the KDE dialogs and implement interfaces, that are
+compatible with the standard Qt dialog APIs. If the import fails, the modules fall back
+to the standard Qt dialogs.
+</p><p>
+In order for this package to work PyKDE must be installed (see 
+<a href="http://www.riverbankcomputing.co.uk/pykde">
+http://www.riverbankcomputing.co.uk/pykde</a>.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__kdeIsKDE">__kdeIsKDE</a></td>
+<td>Public function to signal the availability of KDE4.</td>
+</tr><tr>
+<td><a href="#__kdeKdeVersionString">__kdeKdeVersionString</a></td>
+<td>Public function to return the KDE4 version as a string.</td>
+</tr><tr>
+<td><a href="#__kdePyKdeVersionString">__kdePyKdeVersionString</a></td>
+<td>Public function to return the PyKDE4 version as a string.</td>
+</tr><tr>
+<td><a href="#__qtIsKDE">__qtIsKDE</a></td>
+<td>Private function to signal the availability of KDE.</td>
+</tr><tr>
+<td><a href="#__qtKdeVersionString">__qtKdeVersionString</a></td>
+<td>Private function to return the KDE version as a string.</td>
+</tr><tr>
+<td><a href="#__qtPyKdeVersionString">__qtPyKdeVersionString</a></td>
+<td>Private function to return the PyKDE version as a string.</td>
+</tr><tr>
+<td><a href="#isKDE">isKDE</a></td>
+<td>Public function to signal, if KDE usage is enabled.</td>
+</tr><tr>
+<td><a href="#isKDEAvailable">isKDEAvailable</a></td>
+<td>Public function to signal the availability of KDE.</td>
+</tr><tr>
+<td><a href="#kdeVersionString">kdeVersionString</a></td>
+<td>Public function to return the KDE version as a string.</td>
+</tr><tr>
+<td><a href="#pyKdeVersionString">pyKdeVersionString</a></td>
+<td>Public function to return the PyKDE version as a string.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__kdeIsKDE" ID="__kdeIsKDE"></a>
+<h2>__kdeIsKDE</h2>
+<b>__kdeIsKDE</b>(<i></i>)
+<p>
+            Public function to signal the availability of KDE4.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+availability flag (always True)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeKdeVersionString" ID="__kdeKdeVersionString"></a>
+<h2>__kdeKdeVersionString</h2>
+<b>__kdeKdeVersionString</b>(<i></i>)
+<p>
+    Public function to return the KDE4 version as a string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+KDE4 version as a string (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdePyKdeVersionString" ID="__kdePyKdeVersionString"></a>
+<h2>__kdePyKdeVersionString</h2>
+<b>__kdePyKdeVersionString</b>(<i></i>)
+<p>
+    Public function to return the PyKDE4 version as a string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+PyKDE4 version as a string (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtIsKDE" ID="__qtIsKDE"></a>
+<h2>__qtIsKDE</h2>
+<b>__qtIsKDE</b>(<i></i>)
+<p>
+    Private function to signal the availability of KDE.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+availability flag (always False)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtKdeVersionString" ID="__qtKdeVersionString"></a>
+<h2>__qtKdeVersionString</h2>
+<b>__qtKdeVersionString</b>(<i></i>)
+<p>
+    Private function to return the KDE version as a string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+KDE version as a string (QString) (always empty)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtPyKdeVersionString" ID="__qtPyKdeVersionString"></a>
+<h2>__qtPyKdeVersionString</h2>
+<b>__qtPyKdeVersionString</b>(<i></i>)
+<p>
+    Private function to return the PyKDE version as a string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+PyKDE version as a string (QString) (always empty)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="isKDE" ID="isKDE"></a>
+<h2>isKDE</h2>
+<b>isKDE</b>(<i></i>)
+<p>
+    Public function to signal, if KDE usage is enabled.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+KDE support flag (always False)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="isKDEAvailable" ID="isKDEAvailable"></a>
+<h2>isKDEAvailable</h2>
+<b>isKDEAvailable</b>(<i></i>)
+<p>
+    Public function to signal the availability of KDE.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+availability flag (always False)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="kdeVersionString" ID="kdeVersionString"></a>
+<h2>kdeVersionString</h2>
+<b>kdeVersionString</b>(<i></i>)
+<p>
+    Public function to return the KDE version as a string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+KDE version as a string (QString) (always empty)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pyKdeVersionString" ID="pyKdeVersionString"></a>
+<h2>pyKdeVersionString</h2>
+<b>pyKdeVersionString</b>(<i></i>)
+<p>
+    Public function to return the PyKDE version as a string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+PyKDE version as a string (QString) (always empty)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

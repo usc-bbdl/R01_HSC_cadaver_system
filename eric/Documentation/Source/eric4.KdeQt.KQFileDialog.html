@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html><head>
+<title>eric4.KdeQt.KQFileDialog</title>
+<style>
+body {
+    background:white;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #4FA4FF; }
+h2 { color: white; background: #4FA4FF; }
+h3 { color: white; background: #00557F; }
+h4 { color: white; background: #00557F; }
+    
+a { color: #AA5500; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric4.KdeQt.KQFileDialog</h1>
+<p>
+Compatibility module to use the KDE File Dialog instead of the Qt File Dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__convertFilter">__convertFilter</a></td>
+<td>Private function to convert a Qt file filter to a KDE file filter.</td>
+</tr><tr>
+<td><a href="#__kdeGetExistingDirectory">__kdeGetExistingDirectory</a></td>
+<td>Module function to get the name of a directory.</td>
+</tr><tr>
+<td><a href="#__kdeGetOpenFileName">__kdeGetOpenFileName</a></td>
+<td>Module function to get the name of a file for opening it.</td>
+</tr><tr>
+<td><a href="#__kdeGetOpenFileNames">__kdeGetOpenFileNames</a></td>
+<td>Module function to get a list of names of files for opening.</td>
+</tr><tr>
+<td><a href="#__kdeGetSaveFileName">__kdeGetSaveFileName</a></td>
+<td>Module function to get the name of a file for saving it.</td>
+</tr><tr>
+<td><a href="#__qtGetExistingDirectory">__qtGetExistingDirectory</a></td>
+<td>Module function to get the name of a directory.</td>
+</tr><tr>
+<td><a href="#__qtGetOpenFileName">__qtGetOpenFileName</a></td>
+<td>Module function to get the name of a file for opening it.</td>
+</tr><tr>
+<td><a href="#__qtGetOpenFileNames">__qtGetOpenFileNames</a></td>
+<td>Module function to get a list of names of files for opening.</td>
+</tr><tr>
+<td><a href="#__qtGetSaveFileName">__qtGetSaveFileName</a></td>
+<td>Module function to get the name of a file for saving it.</td>
+</tr><tr>
+<td><a href="#__qtReorderFilter">__qtReorderFilter</a></td>
+<td>Private function to reorder the file filter to cope with a KDE issue introduced by distributors usage of KDE file dialogs.</td>
+</tr><tr>
+<td><a href="#__workingDirectory">__workingDirectory</a></td>
+<td>Private function to determine working directory for the file dialog.</td>
+</tr><tr>
+<td><a href="#getExistingDirectory">getExistingDirectory</a></td>
+<td>Module function to get the name of a directory.</td>
+</tr><tr>
+<td><a href="#getOpenFileName">getOpenFileName</a></td>
+<td>Module function to get the name of a file for opening it.</td>
+</tr><tr>
+<td><a href="#getOpenFileNames">getOpenFileNames</a></td>
+<td>Module function to get a list of names of files for opening.</td>
+</tr><tr>
+<td><a href="#getSaveFileName">getSaveFileName</a></td>
+<td>Module function to get the name of a file for saving it.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__convertFilter" ID="__convertFilter"></a>
+<h2>__convertFilter</h2>
+<b>__convertFilter</b>(<i>filter, selectedFilter = None</i>)
+<p>
+            Private function to convert a Qt file filter to a KDE file filter.
+</p><dl>
+<dt><i>filter</i></dt>
+<dd>
+Qt file filter (QString or string)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+this is set to the selected filter
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the corresponding KDE file filter (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeGetExistingDirectory" ID="__kdeGetExistingDirectory"></a>
+<h2>__kdeGetExistingDirectory</h2>
+<b>__kdeGetExistingDirectory</b>(<i>parent = None, caption = QString(), dir_ = QString(), options = QFileDialog.Options(QFileDialog.ShowDirsOnly)</i>)
+<p>
+            Module function to get the name of a directory.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of selected directory (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeGetOpenFileName" ID="__kdeGetOpenFileName"></a>
+<h2>__kdeGetOpenFileName</h2>
+<b>__kdeGetOpenFileName</b>(<i>parent = None, caption = QString(), dir_ = QString(), filter = QString(), selectedFilter = None, options = QFileDialog.Options()</i>)
+<p>
+            Module function to get the name of a file for opening it.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (QString)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+selected filter for the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be opened (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeGetOpenFileNames" ID="__kdeGetOpenFileNames"></a>
+<h2>__kdeGetOpenFileNames</h2>
+<b>__kdeGetOpenFileNames</b>(<i>parent = None, caption = QString(), dir_ = QString(), filter = QString(), selectedFilter = None, options = QFileDialog.Options()</i>)
+<p>
+            Module function to get a list of names of files for opening.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (QString)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+selected filter for the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of filenames to be opened (QStringList)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeGetSaveFileName" ID="__kdeGetSaveFileName"></a>
+<h2>__kdeGetSaveFileName</h2>
+<b>__kdeGetSaveFileName</b>(<i>parent = None, caption = QString(), dir_ = QString(), filter = QString(), selectedFilter = None, options = QFileDialog.Options()</i>)
+<p>
+            Module function to get the name of a file for saving it.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (QString)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+selected filter for the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be saved (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtGetExistingDirectory" ID="__qtGetExistingDirectory"></a>
+<h2>__qtGetExistingDirectory</h2>
+<b>__qtGetExistingDirectory</b>(<i>parent = None, caption = QString(), dir_ = QString(), options = QFileDialog.Options(QFileDialog.ShowDirsOnly)</i>)
+<p>
+    Module function to get the name of a directory.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of selected directory (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtGetOpenFileName" ID="__qtGetOpenFileName"></a>
+<h2>__qtGetOpenFileName</h2>
+<b>__qtGetOpenFileName</b>(<i>parent = None, caption = QString(), dir_ = QString(), filter = QString(), selectedFilter = None, options = QFileDialog.Options()</i>)
+<p>
+    Module function to get the name of a file for opening it.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (QString)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+selected filter for the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be opened (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtGetOpenFileNames" ID="__qtGetOpenFileNames"></a>
+<h2>__qtGetOpenFileNames</h2>
+<b>__qtGetOpenFileNames</b>(<i>parent = None, caption = QString(), dir_ = QString(), filter = QString(), selectedFilter = None, options = QFileDialog.Options()</i>)
+<p>
+    Module function to get a list of names of files for opening.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (QString)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+selected filter for the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of filenames to be opened (QStringList)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtGetSaveFileName" ID="__qtGetSaveFileName"></a>
+<h2>__qtGetSaveFileName</h2>
+<b>__qtGetSaveFileName</b>(<i>parent = None, caption = QString(), dir_ = QString(), filter = QString(), selectedFilter = None, options = QFileDialog.Options()</i>)
+<p>
+    Module function to get the name of a file for saving it.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (QString)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+selected filter for the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be saved (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__qtReorderFilter" ID="__qtReorderFilter"></a>
+<h2>__qtReorderFilter</h2>
+<b>__qtReorderFilter</b>(<i>filter, selectedFilter = None</i>)
+<p>
+    Private function to reorder the file filter to cope with a KDE issue introduced
+    by distributors usage of KDE file dialogs.
+</p><dl>
+<dt><i>filter</i></dt>
+<dd>
+Qt file filter (QString or string)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+this is set to the selected filter (QString or string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the rearranged Qt file filter (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__workingDirectory" ID="__workingDirectory"></a>
+<h2>__workingDirectory</h2>
+<b>__workingDirectory</b>(<i>path_</i>)
+<p>
+            Private function to determine working directory for the file dialog.
+</p><dl>
+<dt><i>path_</i></dt>
+<dd>
+path of the intended working directory (string or QString)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+calculated working directory (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getExistingDirectory" ID="getExistingDirectory"></a>
+<h2>getExistingDirectory</h2>
+<b>getExistingDirectory</b>(<i>parent = None, caption = QString(), dir_ = QString(), options = QFileDialog.Options(QFileDialog.ShowDirsOnly)</i>)
+<p>
+    Module function to get the name of a directory.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of selected directory (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getOpenFileName" ID="getOpenFileName"></a>
+<h2>getOpenFileName</h2>
+<b>getOpenFileName</b>(<i>parent = None, caption = QString(), dir_ = QString(), filter = QString(), selectedFilter = None, options = QFileDialog.Options()</i>)
+<p>
+    Module function to get the name of a file for opening it.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (QString)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+selected filter for the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be opened (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getOpenFileNames" ID="getOpenFileNames"></a>
+<h2>getOpenFileNames</h2>
+<b>getOpenFileNames</b>(<i>parent = None, caption = QString(), dir_ = QString(), filter = QString(), selectedFilter = None, options = QFileDialog.Options()</i>)
+<p>
+    Module function to get a list of names of files for opening.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (QString)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+selected filter for the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of filenames to be opened (QStringList)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getSaveFileName" ID="getSaveFileName"></a>
+<h2>getSaveFileName</h2>
+<b>getSaveFileName</b>(<i>parent = None, caption = QString(), dir_ = QString(), filter = QString(), selectedFilter = None, options = QFileDialog.Options()</i>)
+<p>
+    Module function to get the name of a file for saving it.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (QString)
+</dd><dt><i>dir_</i></dt>
+<dd>
+working directory of the dialog (QString)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (QString)
+</dd><dt><i>selectedFilter</i></dt>
+<dd>
+selected filter for the dialog (QString)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be saved (QString)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

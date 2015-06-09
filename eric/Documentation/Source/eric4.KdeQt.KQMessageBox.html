@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html><head>
+<title>eric4.KdeQt.KQMessageBox</title>
+<style>
+body {
+    background:white;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #4FA4FF; }
+h2 { color: white; background: #4FA4FF; }
+h3 { color: white; background: #00557F; }
+h4 { color: white; background: #00557F; }
+    
+a { color: #AA5500; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric4.KdeQt.KQMessageBox</h1>
+<p>
+Compatibility module to use the KDE Message Box instead of the Qt Message Box.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>KQMessageBox</td></tr><tr><td>__qtAbout</td></tr><tr><td>__qtAboutQt</td></tr><tr><td>__qtCritical</td></tr><tr><td>__qtInformation</td></tr><tr><td>__qtQuestion</td></tr><tr><td>__qtWarning</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__getGuiItem">__getGuiItem</a></td>
+<td>Private function to create a KGuiItem for a button.</td>
+</tr><tr>
+<td><a href="#__getLowestFlag">__getLowestFlag</a></td>
+<td>Private function to get the lowest flag.</td>
+</tr><tr>
+<td><a href="#__kdeAbout">__kdeAbout</a></td>
+<td>Function to show a modal about message box.</td>
+</tr><tr>
+<td><a href="#__kdeCritical">__kdeCritical</a></td>
+<td>Function to show a modal critical message box.</td>
+</tr><tr>
+<td><a href="#__kdeInformation">__kdeInformation</a></td>
+<td>Function to show a modal information message box.</td>
+</tr><tr>
+<td><a href="#__kdeQuestion">__kdeQuestion</a></td>
+<td>Function to show a modal critical message box.</td>
+</tr><tr>
+<td><a href="#__kdeWarning">__kdeWarning</a></td>
+<td>Function to show a modal warning message box.</td>
+</tr><tr>
+<td><a href="#__nrButtons">__nrButtons</a></td>
+<td>Private function to determine the number of buttons defined.</td>
+</tr><tr>
+<td><a href="#about">about</a></td>
+<td>Function to show a modal about message box.</td>
+</tr><tr>
+<td><a href="#aboutQt">aboutQt</a></td>
+<td>Function to show a modal about message box.</td>
+</tr><tr>
+<td><a href="#critical">critical</a></td>
+<td>Function to show a modal critical message box.</td>
+</tr><tr>
+<td><a href="#information">information</a></td>
+<td>Function to show a modal information message box.</td>
+</tr><tr>
+<td><a href="#question">question</a></td>
+<td>Function to show a modal critical message box.</td>
+</tr><tr>
+<td><a href="#warning">warning</a></td>
+<td>Function to show a modal warning message box.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__getGuiItem" ID="__getGuiItem"></a>
+<h2>__getGuiItem</h2>
+<b>__getGuiItem</b>(<i>button</i>)
+<p>
+            Private function to create a KGuiItem for a button.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+flag indicating the button (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+item for the button (KGuiItem)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__getLowestFlag" ID="__getLowestFlag"></a>
+<h2>__getLowestFlag</h2>
+<b>__getLowestFlag</b>(<i>flags</i>)
+<p>
+            Private function to get the lowest flag.
+</p><dl>
+<dt><i>flags</i></dt>
+<dd>
+flags to be checked (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+lowest flag (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeAbout" ID="__kdeAbout"></a>
+<h2>__kdeAbout</h2>
+<b>__kdeAbout</b>(<i>parent, title, text</i>)
+<p>
+            Function to show a modal about message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeCritical" ID="__kdeCritical"></a>
+<h2>__kdeCritical</h2>
+<b>__kdeCritical</b>(<i>parent, title, text, buttons = QMessageBox.Ok, defaultButton = QMessageBox.NoButton</i>)
+<p>
+            Function to show a modal critical message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+                (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+                (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeInformation" ID="__kdeInformation"></a>
+<h2>__kdeInformation</h2>
+<b>__kdeInformation</b>(<i>parent, title, text, buttons = QMessageBox.Ok, defaultButton = QMessageBox.NoButton</i>)
+<p>
+            Function to show a modal information message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+                (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+                (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user
+                (QMessageBox.StandardButton, always QMessageBox.NoButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeQuestion" ID="__kdeQuestion"></a>
+<h2>__kdeQuestion</h2>
+<b>__kdeQuestion</b>(<i>parent, title, text, buttons = QMessageBox.Ok, defaultButton = QMessageBox.NoButton</i>)
+<p>
+            Function to show a modal critical message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+                (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+                (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__kdeWarning" ID="__kdeWarning"></a>
+<h2>__kdeWarning</h2>
+<b>__kdeWarning</b>(<i>parent, title, text, buttons = QMessageBox.Ok, defaultButton = QMessageBox.NoButton</i>)
+<p>
+            Function to show a modal warning message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+                (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+                (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__nrButtons" ID="__nrButtons"></a>
+<h2>__nrButtons</h2>
+<b>__nrButtons</b>(<i>buttons</i>)
+<p>
+            Private function to determine the number of buttons defined.
+</p><dl>
+<dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+                (QMessageBox.StandardButtons)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of buttons defined (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="about" ID="about"></a>
+<h2>about</h2>
+<b>about</b>(<i>parent, title, text</i>)
+<p>
+    Function to show a modal about message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="aboutQt" ID="aboutQt"></a>
+<h2>aboutQt</h2>
+<b>aboutQt</b>(<i>parent, title</i>)
+<p>
+    Function to show a modal about message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="critical" ID="critical"></a>
+<h2>critical</h2>
+<b>critical</b>(<i>parent, title, text, buttons = QMessageBox.Ok, defaultButton = QMessageBox.NoButton</i>)
+<p>
+    Function to show a modal critical message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+        (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+        (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="information" ID="information"></a>
+<h2>information</h2>
+<b>information</b>(<i>parent, title, text, buttons = QMessageBox.Ok, defaultButton = QMessageBox.NoButton</i>)
+<p>
+    Function to show a modal information message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+        (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+        (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user
+        (QMessageBox.StandardButton, always QMessageBox.NoButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="question" ID="question"></a>
+<h2>question</h2>
+<b>question</b>(<i>parent, title, text, buttons = QMessageBox.Ok, defaultButton = QMessageBox.NoButton</i>)
+<p>
+    Function to show a modal critical message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+        (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+        (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="warning" ID="warning"></a>
+<h2>warning</h2>
+<b>warning</b>(<i>parent, title, text, buttons = QMessageBox.Ok, defaultButton = QMessageBox.NoButton</i>)
+<p>
+    Function to show a modal warning message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+        (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+        (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

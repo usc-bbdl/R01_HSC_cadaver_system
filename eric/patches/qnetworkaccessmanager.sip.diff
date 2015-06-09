@@ -1,0 +1,11 @@
+--- qnetworkaccessmanager.sip.orig	2009-03-03 07:55:27.000000000 +0100
++++ qnetworkaccessmanager.sip	2009-03-03 07:46:43.000000000 +0100
+@@ -75,7 +75,7 @@
+ %End
+ 
+ protected:
+-    virtual QNetworkReply *createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice *outgoingData = 0);
++    virtual QNetworkReply *createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice *outgoingData = 0) /Factory/;
+ };
+ 
+ %End

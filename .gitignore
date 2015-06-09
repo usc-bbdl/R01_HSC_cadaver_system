@@ -1,0 +1,188 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.exe
+*.o
+*.obj
+*.so
+*.ilk
+*.lastbuildstate
+# *.dll
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.tlog
+*.sql
+*.sqlite
+*.mdf
+*.ldf
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Mercurial Files #
+###################
+.hg/
+.hgignore
+
+# DocProject Add-in Files #
+###########################
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
+
+# Windows Azure Build Output
+csx/
+*.build.csdef
+publish/
+*.[Pp]ublish.xml
+*.azurePubxml
+# TODO: Comment the next line if you want to checkin your web deploy settings 
+# but database connection strings (with potential passwords) will be unencrypted
+*.pubxml
+*.publishproj
+
+# Business Intelligence projects #
+##################################
+*.rdl.data
+*.bim.layout
+*.bim_*.settings
+
+# Microsoft Fakes #
+###################
+FakesAssemblies/
+
+# Node.js Tools for Visual Studio #
+###################################
+.ntvs_analysis.dat
+
+# Visual Studio 6 build log #
+#############################
+*.plg
+
+# Visual Studio 6 workspace options file #
+##########################################
+*.opt
+
+# RIA/Silverlight projects #
+############################
+Generated_Code/
+
+# Windows Store app package directory #
+#######################################
+AppPackages/
+
+# Other IDE Specific files #
+############################
+*.sdf
+*.opensdf
+*.cachefile
+*.exp
+*.pdb
+*.pch
+*.idb
+*.user
+*.aps
+*.pgc
+*.pgd
+*.rsp
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.builds
+*.pidb
+*.svclog
+*.scc
+*.psess
+*.vsp
+*.vspx
+*.vspscc
+*.vssscc
+*.vcxproj
+*.vcxproj.*
+*_i.c
+*_i.h
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.meta
+*.ilk
+*.lib
+*.sbr
+*.user
+*.gpState
+.JustCode
+_TeamCity*
+*.dotCover
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+[Bb]uild[Ll]og.*
+*.VisualState.xml
+TestResult.xml
+_NCrunch_*
+.*crunch*.local.xml
+*.mm.*
+AutoTest.Net/
+.sass-cache/
+[Ee]xpress/
+_Chutzpah*
+_UpgradeReport_Files/
+_ReSharper*/
+# *.[Cc]ache
+ClientBin/
+[Ss]tyle[Cc]op.*
+*.dbmdl
+*.dbproj.schemaview
+*.pfx
+*.publishsettings
+node_modules/
+bower_components/
+.vs/
+ipch/
+$tf/
+
+# Directories in Question #
+###########################
+# [Dd]ebugPS/
+# [Rr]eleasePS/
+# dlldata.c
+# [Dd]ebug*/
+# [Ll]ib/
+# [Rr]elease*/
+# [Dd]ebugPublic/
+# [Tt]est[Rr]esults/

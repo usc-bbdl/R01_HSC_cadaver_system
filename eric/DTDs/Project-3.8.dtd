@@ -1,0 +1,95 @@
+<!-- This is the DTD for eric3's project file version 3.8 -->
+
+<!ELEMENT   ProgLanguage        (#PCDATA)>
+<!ATTLIST   ProgLanguage
+    mixed       CDATA   #REQUIRED>
+
+<!ELEMENT   UIType              (#PCDATA)>
+
+<!ELEMENT   Description         (#PCDATA)>
+
+<!ELEMENT   Version             (#PCDATA)>
+
+<!ELEMENT   Author              (#PCDATA)>
+
+<!ELEMENT   Email               (#PCDATA)>
+
+<!ELEMENT   Dir                 (#PCDATA)>
+<!ELEMENT   Name                (#PCDATA)>
+
+<!ELEMENT   TranslationPrefix   (Dir*, Name)>
+
+<!ELEMENT   Source              (Dir*, Name)>
+
+<!ELEMENT   Sources             (Source*)>
+
+<!ELEMENT   Form                (Dir*, Name)>
+
+<!ELEMENT   Forms               (Form*)>
+
+<!ELEMENT   Translation         (Dir*, Name)>
+
+<!ELEMENT   Translations        (Translation*)>
+
+<!ELEMENT   Interface           (Dir*, Name)>
+
+<!ELEMENT   Interfaces          (Interface*)>
+
+<!ELEMENT   Other               (Dir*, Name)>
+
+<!ELEMENT   Others              (Other*)>
+
+<!ELEMENT   MainScript          (Dir*, Name)>
+
+<!ELEMENT   VcsType             (#PCDATA)>
+<!ELEMENT   VcsOptions          (#PCDATA)>
+<!ELEMENT   VcsOtherData        (#PCDATA)>
+
+<!ELEMENT   Vcs                 (VcsType?,
+                                 VcsOptions?,
+                                 VcsOtherData?)>
+
+<!ELEMENT   Eric3DocParams      (#PCDATA)>
+
+<!ELEMENT   Eric3Doc            (Eric3DocParams*)>
+
+<!ELEMENT   Eric3ApiParams      (#PCDATA)>
+
+<!ELEMENT   Eric3Api            (Eric3ApiParams*)>
+
+<!ELEMENT   FiletypeAssociation EMPTY>
+<!ATTLIST   FiletypeAssociation
+    pattern     CDATA   #REQUIRED
+    type        CDATA   #REQUIRED>
+
+<!ELEMENT   FiletypeAssociations (FiletypeAssociation*)>
+
+<!ELEMENT   CxfreezeParams      (#PCDATA)>
+
+<!ELEMENT   Cxfreeze            (CxfreezeParams*)>
+
+<!ELEMENT   PyLintParams        (#PCDATA)>
+
+<!ELEMENT   PyLint              (PyLintParams*)>
+
+<!ELEMENT   Project             (ProgLanguage,
+                                 UIType,
+                                 Description?,
+                                 Version?,
+                                 Author?,
+                                 Email?,
+                                 TranslationPrefix?,
+                                 Sources,
+                                 Forms,
+                                 Translations,
+                                 Interfaces,
+                                 Others,
+                                 MainScript?,
+                                 Vcs,
+                                 Eric3Doc?,
+                                 Eric3Api?,
+                                 FiletypeAssociations,
+                                 Cxfreeze?,
+                                 PyLint?)>
+<!ATTLIST   Project
+    version     CDATA   #REQUIRED>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html><head>
+<title>eric4.Plugins.ViewManagerPlugins.Workspace.Workspace</title>
+<style>
+body {
+    background:white;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #4FA4FF; }
+h2 { color: white; background: #4FA4FF; }
+h3 { color: white; background: #00557F; }
+h4 { color: white; background: #00557F; }
+    
+a { color: #AA5500; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric4.Plugins.ViewManagerPlugins.Workspace.Workspace</h1>
+<p>
+Module implementing the workspace viewmanager class.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Workspace">Workspace</a></td>
+<td>Class implementing the workspace viewmanager class.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="Workspace" ID="Workspace"></a>
+<h2>Workspace</h2>
+<p>
+    Class implementing the workspace viewmanager class.
+</p><h3>Signals</h3>
+<dl>
+<dt>editorChanged(string)</dt>
+<dd>
+emitted when the current editor has changed
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWorkspace, ViewManager
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Workspace.__init__">Workspace</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#Workspace.__iconizeAllWindows">__iconizeAllWindows</a></td>
+<td>Private slot to iconize all windows.</td>
+</tr><tr>
+<td><a href="#Workspace.__restoreAllWindows">__restoreAllWindows</a></td>
+<td>Private slot to restore all windows.</td>
+</tr><tr>
+<td><a href="#Workspace.__windowActivated">__windowActivated</a></td>
+<td>Private slot to handle the windowActivated signal.</td>
+</tr><tr>
+<td><a href="#Workspace._addView">_addView</a></td>
+<td>Protected method to add a view (i.e.</td>
+</tr><tr>
+<td><a href="#Workspace._initWindowActions">_initWindowActions</a></td>
+<td>Protected method to define the user interface actions for window handling.</td>
+</tr><tr>
+<td><a href="#Workspace._modificationStatusChanged">_modificationStatusChanged</a></td>
+<td>Protected slot to handle the modificationStatusChanged signal.</td>
+</tr><tr>
+<td><a href="#Workspace._removeAllViews">_removeAllViews</a></td>
+<td>Protected method to remove all views (i.e.</td>
+</tr><tr>
+<td><a href="#Workspace._removeView">_removeView</a></td>
+<td>Protected method to remove a view (i.e.</td>
+</tr><tr>
+<td><a href="#Workspace._showView">_showView</a></td>
+<td>Private method to show a view (i.e.</td>
+</tr><tr>
+<td><a href="#Workspace._syntaxErrorToggled">_syntaxErrorToggled</a></td>
+<td>Protected slot to handle the syntaxerrorToggled signal.</td>
+</tr><tr>
+<td><a href="#Workspace.activeWindow">activeWindow</a></td>
+<td>Private method to return the active (i.e.</td>
+</tr><tr>
+<td><a href="#Workspace.canCascade">canCascade</a></td>
+<td>Public method to signal if cascading of managed windows is available.</td>
+</tr><tr>
+<td><a href="#Workspace.canSplit">canSplit</a></td>
+<td>public method to signal if splitting of the view is available.</td>
+</tr><tr>
+<td><a href="#Workspace.canTile">canTile</a></td>
+<td>Public method to signal if tiling of managed windows is available.</td>
+</tr><tr>
+<td><a href="#Workspace.cascade">cascade</a></td>
+<td>Public method to cascade the managed windows.</td>
+</tr><tr>
+<td><a href="#Workspace.eventFilter">eventFilter</a></td>
+<td>Public method called to filter the event queue.</td>
+</tr><tr>
+<td><a href="#Workspace.setEditorName">setEditorName</a></td>
+<td>Public method to change the displayed name of the editor.</td>
+</tr><tr>
+<td><a href="#Workspace.showWindowMenu">showWindowMenu</a></td>
+<td>Public method to set up the viewmanager part of the Window menu.</td>
+</tr><tr>
+<td><a href="#Workspace.tile">tile</a></td>
+<td>Public method to tile the managed windows.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Workspace.__init__" ID="Workspace.__init__"></a>
+<h4>Workspace (Constructor)</h4>
+<b>Workspace</b>(<i>parent</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd><dt><i>ui</i></dt>
+<dd>
+reference to the main user interface
+</dd><dt><i>dbs</i></dt>
+<dd>
+reference to the debug server object
+</dd>
+</dl><a NAME="Workspace.__iconizeAllWindows" ID="Workspace.__iconizeAllWindows"></a>
+<h4>Workspace.__iconizeAllWindows</h4>
+<b>__iconizeAllWindows</b>(<i></i>)
+<p>
+        Private slot to iconize all windows.
+</p><a NAME="Workspace.__restoreAllWindows" ID="Workspace.__restoreAllWindows"></a>
+<h4>Workspace.__restoreAllWindows</h4>
+<b>__restoreAllWindows</b>(<i></i>)
+<p>
+        Private slot to restore all windows.
+</p><a NAME="Workspace.__windowActivated" ID="Workspace.__windowActivated"></a>
+<h4>Workspace.__windowActivated</h4>
+<b>__windowActivated</b>(<i>editor</i>)
+<p>
+        Private slot to handle the windowActivated signal.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+the activated editor window
+</dd>
+</dl><a NAME="Workspace._addView" ID="Workspace._addView"></a>
+<h4>Workspace._addView</h4>
+<b>_addView</b>(<i>win, fn = None, noName = ""</i>)
+<p>
+        Protected method to add a view (i.e. window)
+</p><dl>
+<dt><i>win</i></dt>
+<dd>
+editor window to be added
+</dd><dt><i>fn</i></dt>
+<dd>
+filename of this editor
+</dd><dt><i>noName</i></dt>
+<dd>
+name to be used for an unnamed editor (string or QString)
+</dd>
+</dl><a NAME="Workspace._initWindowActions" ID="Workspace._initWindowActions"></a>
+<h4>Workspace._initWindowActions</h4>
+<b>_initWindowActions</b>(<i></i>)
+<p>
+        Protected method to define the user interface actions for window handling.
+</p><a NAME="Workspace._modificationStatusChanged" ID="Workspace._modificationStatusChanged"></a>
+<h4>Workspace._modificationStatusChanged</h4>
+<b>_modificationStatusChanged</b>(<i>m, editor</i>)
+<p>
+        Protected slot to handle the modificationStatusChanged signal.
+</p><dl>
+<dt><i>m</i></dt>
+<dd>
+flag indicating the modification status (boolean)
+</dd><dt><i>editor</i></dt>
+<dd>
+editor window changed
+</dd>
+</dl><a NAME="Workspace._removeAllViews" ID="Workspace._removeAllViews"></a>
+<h4>Workspace._removeAllViews</h4>
+<b>_removeAllViews</b>(<i></i>)
+<p>
+        Protected method to remove all views (i.e. windows)
+</p><a NAME="Workspace._removeView" ID="Workspace._removeView"></a>
+<h4>Workspace._removeView</h4>
+<b>_removeView</b>(<i>win</i>)
+<p>
+        Protected method to remove a view (i.e. window)
+</p><dl>
+<dt><i>win</i></dt>
+<dd>
+editor window to be removed
+</dd>
+</dl><a NAME="Workspace._showView" ID="Workspace._showView"></a>
+<h4>Workspace._showView</h4>
+<b>_showView</b>(<i>win, fn = None</i>)
+<p>
+        Private method to show a view (i.e. window)
+</p><dl>
+<dt><i>win</i></dt>
+<dd>
+editor window to be shown
+</dd><dt><i>fn</i></dt>
+<dd>
+filename of this editor
+</dd>
+</dl><a NAME="Workspace._syntaxErrorToggled" ID="Workspace._syntaxErrorToggled"></a>
+<h4>Workspace._syntaxErrorToggled</h4>
+<b>_syntaxErrorToggled</b>(<i>editor</i>)
+<p>
+        Protected slot to handle the syntaxerrorToggled signal.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+editor that sent the signal
+</dd>
+</dl><a NAME="Workspace.activeWindow" ID="Workspace.activeWindow"></a>
+<h4>Workspace.activeWindow</h4>
+<b>activeWindow</b>(<i></i>)
+<p>
+        Private method to return the active (i.e. current) window.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the active editor
+</dd>
+</dl><a NAME="Workspace.canCascade" ID="Workspace.canCascade"></a>
+<h4>Workspace.canCascade</h4>
+<b>canCascade</b>(<i></i>)
+<p>
+        Public method to signal if cascading of managed windows is available.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating cascading of windows is available
+</dd>
+</dl><a NAME="Workspace.canSplit" ID="Workspace.canSplit"></a>
+<h4>Workspace.canSplit</h4>
+<b>canSplit</b>(<i></i>)
+<p>
+        public method to signal if splitting of the view is available.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating splitting of the view is available.
+</dd>
+</dl><a NAME="Workspace.canTile" ID="Workspace.canTile"></a>
+<h4>Workspace.canTile</h4>
+<b>canTile</b>(<i></i>)
+<p>
+        Public method to signal if tiling of managed windows is available.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating tiling of windows is available
+</dd>
+</dl><a NAME="Workspace.cascade" ID="Workspace.cascade"></a>
+<h4>Workspace.cascade</h4>
+<b>cascade</b>(<i></i>)
+<p>
+        Public method to cascade the managed windows.
+</p><a NAME="Workspace.eventFilter" ID="Workspace.eventFilter"></a>
+<h4>Workspace.eventFilter</h4>
+<b>eventFilter</b>(<i>watched, event</i>)
+<p>
+        Public method called to filter the event queue.
+</p><dl>
+<dt><i>watched</i></dt>
+<dd>
+the QObject being watched
+</dd><dt><i>event</i></dt>
+<dd>
+the event that occurred
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+always False
+</dd>
+</dl><a NAME="Workspace.setEditorName" ID="Workspace.setEditorName"></a>
+<h4>Workspace.setEditorName</h4>
+<b>setEditorName</b>(<i>editor, newName</i>)
+<p>
+        Public method to change the displayed name of the editor.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+editor window to be changed
+</dd><dt><i>newName</i></dt>
+<dd>
+new name to be shown (string or QString)
+</dd>
+</dl><a NAME="Workspace.showWindowMenu" ID="Workspace.showWindowMenu"></a>
+<h4>Workspace.showWindowMenu</h4>
+<b>showWindowMenu</b>(<i>windowMenu</i>)
+<p>
+        Public method to set up the viewmanager part of the Window menu.
+</p><dl>
+<dt><i>windowMenu</i></dt>
+<dd>
+reference to the window menu
+</dd>
+</dl><a NAME="Workspace.tile" ID="Workspace.tile"></a>
+<h4>Workspace.tile</h4>
+<b>tile</b>(<i></i>)
+<p>
+        Public method to tile the managed windows.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>
