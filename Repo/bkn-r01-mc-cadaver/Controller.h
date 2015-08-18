@@ -15,7 +15,7 @@ class Controller
 	int motorSelection[8];
 	int loadCellSelection[8];
 	double outputDCValues[8];
-
+	bool controllerOnFlag[8];
 	int kill;
 	HANDLE hIOMutex;	
 	DWORD delayThread;

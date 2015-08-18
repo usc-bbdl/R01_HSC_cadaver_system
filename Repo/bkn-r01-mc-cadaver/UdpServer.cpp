@@ -36,7 +36,6 @@ void UdpServer::staticUdpServerCallback(void *a)
 void UdpServer::udpServerCallback(void)
 {
 	slen = sizeof(si_other);
-
 	//Initialize winsock
 	printf("\nInitialising Winsock...");
 	if (WSAStartup(MAKEWORD(2,2),&wsa) != 0)

@@ -25,7 +25,9 @@ public:
 	// b'00001010'
 	// or for our case a mask of value 10
 	// Send this number to the controller
-
+	//Kian starts here
+	bool bIsAmplifiersOn;
+		//Kian ends here
 	DCMotorCommand(void);
 	~DCMotorCommand(void);
 	int SendVoltageArrayOut(double *);

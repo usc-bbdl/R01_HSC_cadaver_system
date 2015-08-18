@@ -13,26 +13,29 @@ Controller::Controller(LoadCellData *loadCellData, DCMotorCommand *dcMotorComman
 
 	// CHANGE TO THE DESIRED NUMBER OF GROUPS TO CONTROL
 	initControllerIndex = 0;
-	numControllers = 5;
+	//numControllers = 5;
+	numControllers = 8;
 
-
+	for (int i=0;i<numControllers;i++)
+	{
+		loadCellSelection[i] = i;
+	}
 	motorSelection[0] = 1;
-	motorSelection[1] = 2;
-	motorSelection[2] = 3;
-	motorSelection[3] = 4;
-	motorSelection[4] = 5;
-	motorSelection[5] = 0;
-	motorSelection[6] = 0;
-	motorSelection[7] = 0;
+	motorSelection[1] = 0;
+	motorSelection[2] = 2;
+	motorSelection[3] = 0;
+	motorSelection[4] = 3;
+	motorSelection[5] = 4;
+	motorSelection[6] = 5;
 
-	loadCellSelection[0] = 0;
-	loadCellSelection[1] = 2;
-	loadCellSelection[2] = 4;
-	loadCellSelection[3] = 5;
-	loadCellSelection[4] = 6;
-	loadCellSelection[5] = 0;
-	loadCellSelection[6] = 0;
-	loadCellSelection[7] = 0;
+	controllerOnFlag[0] = false;
+	controllerOnFlag[1] = false;
+	controllerOnFlag[2] = true;
+	controllerOnFlag[3] = false;
+	controllerOnFlag[4] = true;
+	controllerOnFlag[5] = false;
+	controllerOnFlag[6] = false;
+	controllerOnFlag[7] = false;
 
 	bWindUp = false;
 	bForceControlOn = false;
@@ -65,6 +68,9 @@ int Controller::enableForceControl()
 int Controller::enableWindUp()
 {
 	bWindUp = true;
+	//kian starts here
+	bForceControlOn = false;
+	//kian ends here
 	return 0;
 }
 
@@ -82,23 +88,33 @@ int Controller::updateControlLoop(double *loadCellReadings, double *outputValues
 	// Each motor is independent of each other and has its own sensors
 	if (bWindUp) {
 		for (int i = initControllerIndex; i < numControllers; i++) { 
-			desiredReading[i] = loadCellReadings[loadCellSelection[i]] + 0.05;
-			voltageValue[i] = 0.4;
-			*(outputValues + motorSelection[i]) = *(voltageValue + i);
+			if (controllerOnFlag[i])
+			{
+				desiredReading[i] = loadCellReadings[i] + 0.05;
+				voltageValue[i] = 0.4;
+				*(outputValues + motorSelection[i]) = *(voltageValue + i);
+			}
 		}
-
 	}
 	else if (bForceControlOn) {
-		for (int i = initControllerIndex; i < numControllers; i++) { 
-
-			//errorReading[i] = desiredReading[i] - *(loadCellReadings + loadCellSelection[i]);	
-
-			errorReading[i] = desiredReading[i] - loadCellReadings[loadCellSelection[i]];	
-
-			voltageValue[i] =  kp[i] * errorReading[i] + voltageValue[i];
-
-			*(outputValues + motorSelection[i]) = *(voltageValue + i);
+		for (int i = initControllerIndex; i < numControllers; i++) 
+		{
+			if (controllerOnFlag[i])
+			{
+				//errorReading[i] = desiredReading[i] - *(loadCellReadings + loadCellSelection[i]);	 
+				errorReading[i] = desiredReading[i] - loadCellReadings[i];
+				voltageValue[i] =  kp[i] * errorReading[i] + voltageValue[i];
+				*(outputValues + motorSelection[i]) = *(voltageValue + i);
+			}
 		}
+	}//Kian: if both force control and windup are false, set voltage to 0.
+	else{
+				for (int i = initControllerIndex; i < numControllers; i++) { 
+					voltageValue[i] = 0;
+
+					*(outputValues + motorSelection[i]) = *(voltageValue+i);
+		}
+
 	}
 	return 0;
 }

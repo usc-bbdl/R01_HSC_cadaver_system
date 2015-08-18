@@ -8,6 +8,7 @@ DCMotorCommand::DCMotorCommand(void)
 	voltageGain = UNI10VOLTS;
 	minVoltage = 0.0;
 	maxVoltage = 2.0;
+	bIsAmplifiersOn = false;
 	
 	// Initializing VoltageOut modules
 	for(int i = 0; i < numMotors; i++) {
@@ -35,6 +36,7 @@ int DCMotorCommand::SendVoltageArrayOut(double *voltages)
 	for(int i = 0; i < numMotors; i++) {
 		if(*(voltages + i) >= minVoltage && *(voltages + i) <= maxVoltage) {
 			cbVOut(BoardNumVoltage, 2 * i, voltageGain, *(voltages + i), Options);
+			motorVoltages[i] = *(voltages+i);
 		}
 	}
 	return 0;
@@ -55,6 +57,7 @@ int DCMotorCommand::SendVoltageOut(int index, double voltage)
 int DCMotorCommand::TurnAmplifiersOn()
 {
 	cbDOut(BoardNumVoltage, 1, 255);
+	bIsAmplifiersOn = true;
 	return 0;
 }
 
@@ -65,6 +68,7 @@ int DCMotorCommand::TurnAmplifiersOff()
 	}
 	SendVoltageArrayOut(motorVoltages);
 	cbDOut(BoardNumVoltage, 1, 0);
+	bIsAmplifiersOn = false;
 	return 0;
 }
 
