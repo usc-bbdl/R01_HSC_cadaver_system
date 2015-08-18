@@ -1,6 +1,6 @@
 #include "KinematicPerturbation.h"
 
-//#define FAST_PERTURBATION
+#define FAST_PERTURBATION
 
 
 KinematicPerturbation::KinematicPerturbation(void)

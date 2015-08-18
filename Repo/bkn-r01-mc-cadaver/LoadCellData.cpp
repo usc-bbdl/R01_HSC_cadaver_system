@@ -12,7 +12,7 @@ LoadCellData::LoadCellData(char *sDirectoryContainer, char *sDataHeader)
     	bIsRecording = false;
 
 	if (loadCellConfigFile != NULL) {
-		for (int i = 0; i < numChannels; i++) {
+		for (int i = 0; i < numChannels+1; i++) {
 			fscanf(
 				loadCellConfigFile, 
 				"%lf %lf\n", 
@@ -70,7 +70,7 @@ void LoadCellData::loadCellCallback(void)
 		// Query data for this frame
 		double currSampleTime = timeData.getCurrentTime();
 		getLoadCellData();
-		for(int i = 0; i < numChannels; i++) {
+		for(int i = 0; i < numChannels+1; i++) {
 			outDisplayValues[i] = loadCellValue[i];
 			outForceControllerValues[i] = loadCellValue[i];
 			outLoggingValues[i] = loadCellValue[i];
@@ -142,8 +142,8 @@ int LoadCellData::getLoadCellData()
 		CPhidgetBridge_getBridgeValue(bridge2, i, tempLoadcell + i + 4);
 	}
 
-	for(int i = 0; i < numChannels; i++) {
-		//loadCellValue[i] = tempLoadcell[i];
+	for(int i = 0; i < (numChannels+1); i++) {
+		loadCellValue[i] = tempLoadcell[i];
 		loadCellValue[i] = loadCellIntercept[i] + tempLoadcell[i] * loadCellSlope[i];
 	}
 	return 0;
@@ -178,10 +178,10 @@ int CCONV AttachHandlerBridge(CPhidgetHandle phid, void *userptr)
 	CPhidgetBridge_setEnabled(bridge, 2, PTRUE);
 	CPhidgetBridge_setEnabled(bridge, 3, PTRUE);
 
-	CPhidgetBridge_setGain(bridge, 0, PHIDGET_BRIDGE_GAIN_128);
-	CPhidgetBridge_setGain(bridge, 1, PHIDGET_BRIDGE_GAIN_128);
-	CPhidgetBridge_setGain(bridge, 2, PHIDGET_BRIDGE_GAIN_128);
-	CPhidgetBridge_setGain(bridge, 3, PHIDGET_BRIDGE_GAIN_128);
+	CPhidgetBridge_setGain(bridge, 0, PHIDGET_BRIDGE_GAIN_1);
+	CPhidgetBridge_setGain(bridge, 1, PHIDGET_BRIDGE_GAIN_1);
+	CPhidgetBridge_setGain(bridge, 2, PHIDGET_BRIDGE_GAIN_1);
+	CPhidgetBridge_setGain(bridge, 3, PHIDGET_BRIDGE_GAIN_1);
 
 	CPhidgetBridge_setDataRate(bridge, 1);
 

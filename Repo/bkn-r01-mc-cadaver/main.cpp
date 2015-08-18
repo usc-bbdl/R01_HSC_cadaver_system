@@ -10,6 +10,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include "UdpClient.h"
 #include "UdpServer.h"
+#include "analogServer.h"
 #include <windows.h>
 #include <process.h>
 #include <stdio.h>
@@ -58,11 +59,12 @@ KinematicPerturbation gKinematicPerturbation;
 
 UdpClient gUdpClient;
 UdpServer gUdpServer;
+analogServer gAnalogServer(&gLoadCellData);
 
 bool bIsKinematic = false;
 bool bIsPerturbing = false;
 bool bIsRecording = false;
-
+//Do you see the changes?
 HINSTANCE hInst;
 TCHAR ch = ' ';			// Character entered
 FILE *fileConsole;
@@ -74,13 +76,15 @@ const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
 
 // Control Constants
-char gStatusString[10][300];
+char gStatusString[11][300];
 
 void outputText(int x, int y, char *strOut);
 void renderConsole();
 void renderConsole()
 {
-	outputText(0, 0, gStatusString[0]);
+	outputText(0, 25, "Ch   LoadCell   Encoder   MotorCommand   Desired   Error");
+	outputText(0, 0, "Time:");
+	outputText(50, 0, gStatusString[0]);
 	outputText(0, 50, gStatusString[1]);
 	outputText(0, 100, gStatusString[2]);
 	outputText(0, 150, gStatusString[3]);
@@ -90,6 +94,7 @@ void renderConsole()
 	outputText(0, 350, gStatusString[7]);
 	outputText(0, 400, gStatusString[8]);
 	outputText(0, 450, gStatusString[9]);
+	//outputText(0, 500, gStatusString[10]);
 
 	if(gEncoderData.bIsRecording) {
 		outputText(0, 500, "R_Encoders");
@@ -100,6 +105,14 @@ void renderConsole()
 	if(gController.bForceControlOn) {
 		outputText(200, 500, "ForceControl On");
 	}
+	//Kian starts here
+	if(gController.bWindUp) {
+		outputText(600, 200, "Wind Up");
+	}
+	if(gDCMotorCommand.bIsAmplifiersOn) {
+		outputText(600, 300, "Amplifiers on");
+	}
+	//kian ends here
 	if(bIsKinematic) {
 		outputText(200, 550, "Kinematic");
 	}
@@ -108,6 +121,9 @@ void renderConsole()
 	}
 	if(bIsPerturbing) {
 		outputText(400, 500, "Perturbing");
+	}
+	if(bIsRecording) {
+		outputText(400, 600, "Recording");
 	}
 }
 
@@ -138,65 +154,67 @@ void keyboard(unsigned char key, int x, int y)
 		exit(0);
 		break;
 
-	case 'C':	// "Motor 1 Up"
+	case 'C':	// Enable Force Control
 	case 'c':
 		gController.enableForceControl();
 		break;
 
-	case 'Q':	// "Motor 1 Up"
+	case 'Q':	// "Motor 0 Up"
 	case 'q':
 		gController.updateDesiredReading(0, gController.desiredReading[0] + 0.001);
 		break;
 
-	case 'A':	// "Motor 1 Down"
+	case 'A':	// "Motor 0 Down"
 	case 'a':
 		gController.updateDesiredReading(0, gController.desiredReading[0] - 0.001);
 		break;
 
 	case 'W':	// "Motor 2 Up"
 	case 'w':
-		gController.updateDesiredReading(1, gController.desiredReading[1] + 0.001);
+		gController.updateDesiredReading(2, gController.desiredReading[2] + 0.01);
 		break;
 
 	case 'S':	// "Motor 2 Down"
 	case 's':
-		gController.updateDesiredReading(1, gController.desiredReading[1] - 0.001);
+		gController.updateDesiredReading(2, gController.desiredReading[2] - 0.01);
 		break;
 
-	case 'E':	// "Motor 2 Up"
+	case 'E':	// "Motor 4 Up"
 	case 'e':
-		gController.updateDesiredReading(2, gController.desiredReading[2] + 0.001);
+		gController.updateDesiredReading(4, gController.desiredReading[4] + 0.01);
 		break;
 
-	case 'D':	// "Motor 2 Down"
+	case 'D':	// "Motor 4 Down"
 	case 'd':
-		gController.updateDesiredReading(2, gController.desiredReading[2] - 0.001);
+		gController.updateDesiredReading(4, gController.desiredReading[4] - 0.01);
 		break;
 
-	case 'R':	// "Motor 2 Up"
+	case 'R':	// "Motor 5 Up"
 	case 'r':
-		gController.updateDesiredReading(3, gController.desiredReading[3] + 0.001);
+		gController.updateDesiredReading(5, gController.desiredReading[5] + 0.001);
 		break;
 
-	case 'F':	// "Motor 2 Down"
+	case 'F':	// "Motor 5 Down"
 	case 'f':
-		gController.updateDesiredReading(3, gController.desiredReading[3] - 0.001);
+		gController.updateDesiredReading(5, gController.desiredReading[5] - 0.001);
 		break;
 
-	case 'T':	// "Motor 2 Up"
+	case 'T':	// "Motor 6 Up"
 	case 't':
-		gController.updateDesiredReading(4, gController.desiredReading[4] + 0.001);
+		gController.updateDesiredReading(4, gController.desiredReading[6] + 0.001);
 		break;
 
-	case 'G':	// "Motor 2 Down"
+	case 'G':	// "Motor 6 Down"
 	case 'g':
-		gController.updateDesiredReading(4, gController.desiredReading[4] - 0.001);
+		gController.updateDesiredReading(4, gController.desiredReading[6] - 0.001);
 		break;
 
 	case 'L':	// "Logging Generic"
 	case 'l':
 		gEncoderData.setFileName("encoders");
 		gLoadCellData.setFileName("loadcells");
+		gEncoderData.timeData.resetTimer();
+		gLoadCellData.timeData.resetTimer();
 		gEncoderData.startRecording();
 		gLoadCellData.startRecording();
 		break;
@@ -215,7 +233,8 @@ void keyboard(unsigned char key, int x, int y)
 
 	case 'P':	// "Pull"
 	case 'p':
-		gController.bWindUp = true;
+		//by kian		gController.bWindUp = true;
+		gController.enableWindUp();
 		//gDCMotorCommand.WindUpMotors();
 		break;
 
@@ -239,54 +258,108 @@ void keyboard(unsigned char key, int x, int y)
 	}
 }
 
+//
+//int update() 
+//{
+//	if(gUdpServer.bReceivedName) {
+//		gEncoderData.setFileName(gUdpServer.sNameOfDataFile);
+//		gLoadCellData.setFileName(gUdpServer.sNameOfDataFile);
+//		if(bIsKinematic) {
+//			gKinematicPerturbation.setTimeStamp(gUdpServer.sNameOfDataFile);
+//		}
+//		else {
+//			//gUdpClient.sendMessageToServer(gUdpServer.sNameOfDataFile);
+//		}
+//		gUdpServer.bReceivedName = false;
+//	}
+//	if(gUdpServer.bReceivedKKK) {
+//		//bIsKinematic = !bIsKinematic;
+//		bIsKinematic = true;
+//		gUdpServer.bReceivedKKK = false;
+//	}
+//	if(gUdpServer.bReceivedRRR) {
+//		gEncoderData.timeData.resetTimer();
+//		gLoadCellData.timeData.resetTimer();
+//		gKinematicPerturbation.timeData.resetTimer();
+//		bIsRecording = true;
+//		gEncoderData.startRecording();
+//		gLoadCellData.startRecording();
+//		if(bIsKinematic) {
+//			gKinematicPerturbation.startRecording();	
+//		}
+//		else {
+//			//gUdpClient.sendMessageToServer("RRR");
+//		}
+//		gUdpServer.bReceivedRRR = false;
+//	}
+//	if(gUdpServer.bReceivedPPP) {
+//		bIsPerturbing = true;
+//		if(bIsKinematic) {
+//			//gKinematicPerturbation.SineWavePerturbationLookUpTable();
+//			//gKinematicPerturbation.RampHoldandBack();
+//			gKinematicPerturbation.ReadPerturbationFile();
+//			gKinematicPerturbation.TrackPerturbationFromFile();
+//		}
+//		else {
+//			gUdpClient.sendMessageToServer("PPP");
+//		}
+//		gUdpServer.bReceivedPPP = false;
+//	}
+//	if(gUdpServer.bReceivedTTT) {
+//		bIsPerturbing = false;
+//		bIsRecording = false;
+//		gEncoderData.closeRecordingFile();
+//		gLoadCellData.closeRecordingFile();
+//		if(bIsKinematic) {
+//			gKinematicPerturbation.stopRecording();
+//			gKinematicPerturbation.StopPerturbing();
+//		}
+//		else {
+//			//gUdpClient.sendMessageToServer("TTT");
+//		}
+//		gUdpServer.bReceivedTTT = false;
+//	}
+//
+//	return 0;
+//}
 
 int update() 
 {
-	if(gUdpServer.bReceivedName) {
-		gEncoderData.setFileName(gUdpServer.sNameOfDataFile);
-		gLoadCellData.setFileName(gUdpServer.sNameOfDataFile);
+	if(gAnalogServer.bReceivedName) {
+		gEncoderData.setFileName(gAnalogServer.sNameOfDataFile);
+		gLoadCellData.setFileName(gAnalogServer.sNameOfDataFile);
 		if(bIsKinematic) {
-			gKinematicPerturbation.setTimeStamp(gUdpServer.sNameOfDataFile);
+			gKinematicPerturbation.setTimeStamp(gAnalogServer.sNameOfDataFile);
 		}
-		else {
-			//gUdpClient.sendMessageToServer(gUdpServer.sNameOfDataFile);
-		}
-		gUdpServer.bReceivedName = false;
+		gAnalogServer.bReceivedName = false;
 	}
-	if(gUdpServer.bReceivedKKK) {
-		//bIsKinematic = !bIsKinematic;
+	if(gAnalogServer.bReceivedKKK) {
 		bIsKinematic = true;
-		gUdpServer.bReceivedKKK = false;
+		gAnalogServer.bReceivedKKK = false;
 	}
-	if(gUdpServer.bReceivedRRR) {
+	if(gAnalogServer.bReceivedRRR) {
 		gEncoderData.timeData.resetTimer();
 		gLoadCellData.timeData.resetTimer();
 		gKinematicPerturbation.timeData.resetTimer();
 		bIsRecording = true;
 		gEncoderData.startRecording();
 		gLoadCellData.startRecording();
-		if(bIsKinematic) {
+		gAnalogServer.bReceivedRRR = false;
+		if(bIsKinematic) 
 			gKinematicPerturbation.startRecording();	
-		}
-		else {
-			//gUdpClient.sendMessageToServer("RRR");
-		}
-		gUdpServer.bReceivedRRR = false;
 	}
-	if(gUdpServer.bReceivedPPP) {
+	if(gAnalogServer.bReceivedPPP) {
+		Sleep(500);
 		bIsPerturbing = true;
 		if(bIsKinematic) {
 			//gKinematicPerturbation.SineWavePerturbationLookUpTable();
 			gKinematicPerturbation.RampHoldandBack();
 			//gKinematicPerturbation.ReadPerturbationFile();
 			//gKinematicPerturbation.TrackPerturbationFromFile();
+			gAnalogServer.bReceivedPPP = false; 
 		}
-		else {
-			gUdpClient.sendMessageToServer("PPP");
-		}
-		gUdpServer.bReceivedPPP = false;
 	}
-	if(gUdpServer.bReceivedTTT) {
+	if(gAnalogServer.bReceivedTTT) {
 		bIsPerturbing = false;
 		bIsRecording = false;
 		gEncoderData.closeRecordingFile();
@@ -295,12 +368,20 @@ int update()
 			gKinematicPerturbation.stopRecording();
 			gKinematicPerturbation.StopPerturbing();
 		}
-		else {
-			//gUdpClient.sendMessageToServer("TTT");
-		}
-		gUdpServer.bReceivedTTT = false;
+		gAnalogServer.bReceivedTTT = false;
 	}
-
+	if(gAnalogServer.bNotConnected) {
+		bIsPerturbing = false;
+		bIsRecording = false;
+		bIsKinematic = false;
+		gEncoderData.closeRecordingFile();
+		gLoadCellData.closeRecordingFile();
+		if(bIsKinematic) {
+			gKinematicPerturbation.stopRecording();
+			gKinematicPerturbation.StopPerturbing();
+		}
+		gAnalogServer.bNotConnected = false;
+	}
 	return 0;
 }
 
@@ -321,61 +402,63 @@ void Display()
 	glColor3f(0.5f, 0.5f, 0.5f);
 
 	sprintf_s(gStatusString[0], 
-		"%f", 
+		"%.1f", 
 		gPerformanceTimer.getCurrentTime()
 	);
-
 	sprintf_s(gStatusString[1], 
-		"0    %f    %u    %f    %f   %f\n", 
+		"0         %.3f       %05d             %.3f               %.3f      %.3f\n", 
 		gLoadCellData.outDisplayValues[0], 
 		gEncoderData.outDisplayValuesULONG[0], 
 		gDCMotorCommand.motorVoltages[1], 
 		gController.desiredReading[0], 
 		gController.errorReading[0]);
-
-	sprintf_s(gStatusString[6], 
-		"A    %f", 
-		gLoadCellData.outDisplayValues[1]
-	);
-
-	sprintf_s(gStatusString[7], 
-		"B    %f", 
-		gLoadCellData.outDisplayValues[3]
-	);
-
 	sprintf_s(gStatusString[2], 
-		"1    %f    %u    %f    %f   %f\n", 
-		gLoadCellData.outDisplayValues[2], 
-		gEncoderData.outDisplayValuesULONG[2], 
-		gDCMotorCommand.motorVoltages[2],  
-		gController.desiredReading[1], 
-		gController.errorReading[1]);
+		"2         %.3f       %05d             %.3f               %.3f      %.3f\n", 
+		gLoadCellData.outDisplayValues[2],
+		gEncoderData.outDisplayValuesULONG[2],
+		gDCMotorCommand.motorVoltages[2],
+		gController.desiredReading[2],
+		gController.errorReading[2]);
 
 	sprintf_s(gStatusString[3], 
-		"2    %f   %u    %f    %f   %f\n", 
+		"4         %.3f       %05d             %.3f               %.3f      %.3f\n", 
 		gLoadCellData.outDisplayValues[4], 
 		gEncoderData.outDisplayValuesULONG[4], 
 		gDCMotorCommand.motorVoltages[3],  
-		gController.desiredReading[2], 
-		gController.errorReading[2]);
-
-	sprintf_s(gStatusString[4], 
-		"3    %f    %u    %f    %f   %f\n", 
-		gLoadCellData.outDisplayValues[5], 
-		gEncoderData.outDisplayValuesULONG[5], 
-		gDCMotorCommand.motorVoltages[4],  
-		gController.desiredReading[3], 
-		gController.errorReading[3]);
-
-	sprintf_s(gStatusString[5], 
-		"4    %f    %u    %f    %f   %f\n", 
-		gLoadCellData.outDisplayValues[6], 
-		gEncoderData.outDisplayValuesULONG[6], 
-		gDCMotorCommand.motorVoltages[5],  
 		gController.desiredReading[4], 
 		gController.errorReading[4]);
 
+	sprintf_s(gStatusString[4], 
+		"5         %.3f       %05d             %.3f               %.3f      %.3f\n", 
+		gLoadCellData.outDisplayValues[5], 
+		gEncoderData.outDisplayValuesULONG[5], 
+		gDCMotorCommand.motorVoltages[4],  
+		gController.desiredReading[5], 
+		gController.errorReading[5]);
 
+	sprintf_s(gStatusString[5], 
+		"6         %.3f       %05d             %.3f              %.3f      %.3f\n", 
+		gLoadCellData.outDisplayValues[6], 
+		gEncoderData.outDisplayValuesULONG[6], 
+		gDCMotorCommand.motorVoltages[5],  
+		gController.desiredReading[6], 
+		gController.errorReading[6]);
+
+	sprintf_s(gStatusString[6], 
+		"A(1)     %.3f      %05d", 
+		gLoadCellData.outDisplayValues[1],
+		gEncoderData.outDisplayValuesULONG[1]
+	);
+
+	sprintf_s(gStatusString[7], 
+		"B(2)     %.3f      %05d", 
+		gLoadCellData.outDisplayValues[7],
+		gEncoderData.outDisplayValuesULONG[3]
+	);
+	sprintf_s(gStatusString[10], 
+		"analog Server Voltage: %.3f", 
+		gAnalogServer.voltageValue
+	);
 	glColor3f(0.0f, 0.9f, 0.0f);
 	renderConsole();
 
